@@ -1,0 +1,38 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}Director{% endblock %}
+
+{% block css %}
+.online{
+    background-color: #616161;
+    text-align: center;
+}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <img src="{{ director.photo.url }}" alt="">
+            </div>
+            <div class="col-sm">
+                <h1>{{ director.name }}</h1>
+            </div>
+        </div>
+        <div class="online">
+            <h2>Movies with: {{ director.name }}</h2>
+        </div>
+        {% for movie in movies %}
+        <div class="card" style="border:2px solid;width: 18rem;">
+          <img src="{{ movie.photo.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ movie.name }}</h5>
+            <p class="card-text">{{ movie.description }}</p>
+            <a href="{% url 'show' movie.id %}" class="btn btn-primary">Show</a>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+
+{% block title %}
+{{ movie.name }}
+{% endblock %}
+
+{% block css %}
+.desc{
+    border:2px solid;
+}
+.indentation{
+    margin: 20px 0px 0px;
+}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <img src="{{ movie.photo.url }}" alt="">
+            </div>
+            <div class="col-sm">
+                <p>Name: {{ movie.name }}</p>
+                <p>Year: {{ movie.year }}</p>
+                <p>Genre: {{ movie.year }}</p>
+                <a href="{% url 'director' movie.director.id %}">Director: {{ movie.director.name }}</a>
+            </div>
+        </div>
+        <div class="indentation">
+            <p class="desc">
+                {{ movie.description }}
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <video src="{{ movie.video.url }}"
+                controls
+                autoplay
+                preload="auto"
+                width="1000"
+                height="800">
+            </div>
+        </div>
+    </div>
+{% endblock %}
