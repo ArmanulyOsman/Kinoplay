@@ -1,0 +1,12 @@
+{% extends 'layout\base.html' %}
+
+{% for movie in movies %}
+    <div class="card" style="border:2px solid;width: 18rem;">
+        <img src="{{ movie.photo.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ movie.name }}</h5>
+            <p class="card-text">{{ movie.description }}</p>
+            <a href="{% url 'show' movie.id %}" class="btn btn-primary">Show</a>
+        </div>
+    </div>
+{% endfor %}

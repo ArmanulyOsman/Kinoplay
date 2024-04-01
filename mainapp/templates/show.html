@@ -23,7 +23,7 @@
             <div class="col-sm">
                 <p>Name: {{ movie.name }}</p>
                 <p>Year: {{ movie.year }}</p>
-                <p>Genre: {{ movie.year }}</p>
+                <p>Genre: {{ movie.category.name }}</p>
                 <a href="{% url 'director' movie.director.id %}">Director: {{ movie.director.name }}</a>
             </div>
         </div>
